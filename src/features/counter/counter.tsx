@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { decrement, increment, incrementAsync, incrementByAmount } from './counterSlice';
 import styles from './counter.module.css';
 
-export const Counter = () => {
-  const count = useSelector((state) => state.counter.value)
-  const dispatch = useDispatch()
+export const Counter: React.FC = () => {
+  const count = useAppSelector((state) => state.counter.value);
+  const dispatch = useAppDispatch();
   const [incrementAmount, setIncrementAmount] = useState(2);
 
   return (
@@ -29,7 +29,7 @@ export const Counter = () => {
         <input
           className={styles.textbox}
           value={incrementAmount}
-          onChange={e => setIncrementAmount(e.target.value)}
+          onChange={e => setIncrementAmount(Number(e.target.value))}
         />
         <button
           className={styles.button}
@@ -45,5 +45,5 @@ export const Counter = () => {
         </button>
       </div>
     </div>
-  )
+  );
 }
