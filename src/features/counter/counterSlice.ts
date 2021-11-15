@@ -1,31 +1,31 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import type { AppDispatch } from '../../app/store'
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import type { AppDispatch } from "../../app/store";
 
 type CounterState = {
-  value: number
+  value: number;
 };
 
 const initialState: CounterState = {
   value: 0,
-}
+};
 
 export const counterSlice = createSlice({
-  name: 'counter',
+  name: "counter",
   initialState,
   reducers: {
     increment: (state) => {
-      state.value += 1
+      state.value += 1;
     },
     decrement: (state) => {
-      state.value -= 1
+      state.value -= 1;
     },
     incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.value += action.payload
+      state.value += action.payload;
     },
   },
 });
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
+export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 
 // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
@@ -37,4 +37,4 @@ export const incrementAsync = (amount: number) => (dispatch: AppDispatch) => {
   }, 1000);
 };
 
-export default counterSlice.reducer
+export default counterSlice.reducer;

@@ -1,6 +1,6 @@
-declare module '*.css' {
+declare module "*.css" {
   const exports: {
-      [exportName: string]: string
+    [exportName: string]: string;
   };
-  export = exports
+  export = exports;
 }
